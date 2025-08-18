@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Café Labyrinth</title>
+    <!-- Bootstrap -->
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="./assets/css/index.css" rel="stylesheet">
+    <link href="./assets/css/footer.css" rel="stylesheet">
+  </head>
+  <body>
+  <!-- Início da Barra de navegação-->
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/image/Morango.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      Pomar Digital
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="lista.html">Lista</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    </header>
+  <!-- Fim da Barra de navegação -->
+  <!-- Ínicio Do Carrossel-->
+<main>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/image/manga madurinha.avif" class="d-block w-100" alt="Manga">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/image/acerola madurinha.avif" class="d-block w-100" alt="Acerola">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/image/abacate madurinha.avif" class="d-block w-100" alt="Abacate">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</main>
+  
+  <!-- Ínicio do Footer -->
+   <footer class="container-fluid text-white bg-dark">
+    <div class="row pt-5 pb-5">
+        <section class="col-md-5">
+            <h5><img src="assets/image/Morango.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+
+              Pomar Digital
+            </h5>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cardapio.html" class="nav-link text-white">Lista</a>
+                </li>
+                
+            </ul>
+        </section>
+        <section class="col-md-5">
+            <h5>Contato</h5>
+            <ul class="nav flex-column">
+                <li>
+                    <a class="nav-link text-white" href="tel:+5583111111111">Tel: (83) 9 9999-9999</a>
+                </li>
+                <li><a class="nav-link text-white" href=https://wa.me/5583999999999?text=Quero%20fazer%20um%20pedido! target="_blank">WhatsApp: (83) 9 9999-9999</a></li>
+            </ul>
+        </section>
+        <section>
+            <a class="nav-link text-white" href="#">Voltar ao topo!</a>
+        </section>
+    </div>
+   </footer>
+   <!-- Fim do Footer-->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/index.js" type="module"></script>
+  </body>
+</html>

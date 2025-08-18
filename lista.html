@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pomar Digital</title>
+    <!-- Bootstrap -->
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/lista.css">
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="./node_modules/toastify-js/src/toastify.css">    
+    <!-- Scripts -->
+    <link href="./assets/css/lista.css" rel="stylesheet">
+    <link href="./assets/css/footer.css" rel="stylesheet">
+  </head>
+  <body>
+  <!-- Início da Barra de navegação-->
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="assets/image/Morango.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+              Pomar Digital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="lista.html">Lista</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+  <!-- Fim da Barra de navegação -->
+  <!-- Ínicio do Label-->
+<main>
+    <div class="container d-flex justify-content-center align-items-center">
+<div class="form-floating mb-3 w-100">
+    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Buscar</label>
+    </div>
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#frutaModal">
+  +
+</button>
+    </div>
+  
+  
+  <!-- Fim do Label -->
+  
+  <!-- Ínicio do Modal-->
+   <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="frutaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar - Frutas</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    <!-- Ínicio do Formulario -->
+    <form id="frutaCadastrarForm">
+      <div class="modal-body">
+   
+    
+    <div class="mb-3">
+        <label for="identificador" class="form-label">Identificador</label>
+        <input type="text" class="form-control" id="identificador" name="identificador" placeholder="ID">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome da Espécie(popular)</label>
+        <select class="form-control" id="nome" name="nome">
+          <option value="Manga" data-img="assets/image/manga madurinha.avif">Manga</option>
+          <option value="Acerola" data-img="assets/image/acerola madurinha.avif">Acerola</option>
+          <option value="Abacate" data-img="assets/image/abacate madurinha.avif">Abacate</option>
+          <option value="Caju" data-img="assets/image/caju madurinho.jpg">Caju</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="cientifico" class="form-label">Nome Científico</label>
+        <input type="text" class="form-control" id="cientifico" name="cientifico" placeholder="Nome Científico">
+    </div>
+    <div class="mb-3">
+        <label for="producao" class="form-label">Produção por Safra(kg)</label>
+        <input type="number" class="form-control" id="producao" name="producao" placeholder="Produção por Safra">
+    </div>
+    <div class="mb-3">
+        <label for="dataPlantio" class="form-label">Data do plantio</label>
+        <input type="date" class="form-control" id="dataPlantio" name="dataPlantio" placeholder="Data do plantio">
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</main>
+<!-- Fim do Modal -->
+  
+  <!-- Ínicio da Tabela --> 
+<div class="container">
+<table class="table table-hover table-success table-striped" id="frutasListaTable">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Imagem</th>
+      <th scope="col">Nome da Espécie(popular)</th>
+      <th scope="col">Nome Científico</th>
+      <th scope="col">Produção por Safra</th>
+      <th scope="col">Data do plantio</th>
+    </tr>
+  </thead>
+  <tbody id="frutaListaTBody">
+    
+  </tbody>
+</table>
+</div>
+  <!-- Ínicio do Footer -->
+   <div class="wrapper">
+   <footer class="container-fluid text-white bg-dark fixed-bottom">
+    <div class="row pt-5 pb-5">
+        <section class="col-md-5">
+            <h5><img src="assets/image/Morango.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+
+                Pomar Digital
+            </h5>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="lista.html" class="nav-link">Lista</a>
+                </li>
+                
+            </ul>
+        </section>
+        <section class="col-md-5">
+            <h5>Contato</h5>
+            <ul>
+                <li><a class="nav-link text-white" href="tel:+5583111111111">Tel: (83) 9 9999-9999</a></li>
+                <li><a class="nav-link text-white" href=https://wa.me/5583999999999?text=Quero%20fazer%20um%20pedido! target="_blank">WhatsApp: (83) 9 9999-9999</a></li>
+            </ul>
+        </section>
+        <section>
+            <a class="nav-link text-white" href="#">Voltar ao topo!</a>
+        </section>
+    </div>
+    </div>
+   </footer>
+   <!-- Bootstrap  -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="./node_modules/toastify-js/src/toastify.js"></script>
+
+    <script src="./src/lista.js" type="module"></script>
+  </body>
+
+
+</html>
