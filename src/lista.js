@@ -15,11 +15,42 @@ const addFrutaTable = (fruta) => {
   frutasTBody.insertAdjacentHTML('beforeend', frutaTr);
 };
 
+const addFrutaCard = (fruta) => {
+  let frutasContainer = document.getElementById('frutasCardContainer');
+
+  let plantio = new Date(fruta.dataPlantio);
+  let hoje = new Date();
+  let idadeMeses = (hoje.getFullYear() - plantio.getFullYear()) * 12 
+                 + (hoje.getMonth() - plantio.getMonth());
+
+
+  let frutaCard = `
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <img src="${fruta.imagem}" class="card-img-top" alt="${fruta.nome}" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">${fruta.nome}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"><i>${fruta.cientifico}</i></h6>
+          <p class="card-text">
+            <strong>ID:</strong> ${fruta.identificador}<br>
+            <strong>Produção:</strong> ${fruta.producao} Kg<br>
+            <strong>Data Plantio:</strong> ${fruta.dataPlantio}<br>
+            <strong>Idade:</strong> ${idadeMeses} meses
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  frutasContainer.insertAdjacentHTML('beforeend', frutaCard);
+};
+
 // Carregar fruteiras do localStorage ao abrir a página
-const carregarTabela = () => {
+const carregarFrutas = () => {
   let frutas = JSON.parse(localStorage.getItem('frutas')) ?? [];
   for (let fruta of frutas) {
     addFrutaTable(fruta);
+    addFrutaCard(fruta);
   }
 };
 
@@ -30,6 +61,8 @@ const handleSubmit = (event) => {
   let frutaForm = document.getElementById('frutaCadastrarForm');
   let frutaFormData = new FormData(frutaForm);
   let fruta = Object.fromEntries(frutaFormData);
+
+  fruta.identificador = Date.now();
 
   let select = document.querySelector('#nome');
   let imgSrc = select.options[select.selectedIndex].getAttribute('data-img');
@@ -45,7 +78,7 @@ const handleSubmit = (event) => {
 
   // Adicionar na tabela
   addFrutaTable(fruta);
-
+  addFrutaCard(fruta);
   // Resetar formulário
   frutaForm.reset();
 
@@ -66,4 +99,14 @@ const handleSubmit = (event) => {
 let frutaCadastrarForm = document.getElementById('frutaCadastrarForm');
 frutaCadastrarForm.onsubmit = handleSubmit;
 
-document.body.onload = carregarTabela;
+document.body.onload = carregarFrutas;
+
+document.getElementById('btnTabela').addEventListener('click', () => {
+  document.getElementById('viewTabela').style.display = 'block';
+  document.getElementById('viewCards').style.display = 'none';
+});
+
+document.getElementById('btnCards').addEventListener('click', () => {
+  document.getElementById('viewTabela').style.display = 'none';
+  document.getElementById('viewCards').style.display = 'block';
+});

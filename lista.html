@@ -16,10 +16,10 @@
   <body>
   <!-- Início da Barra de navegação-->
     <header>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-success bg-success">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
-              <img src="assets/image/Morango.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+              <img src="assets/image/arvore.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
               Pomar Digital
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,18 +70,13 @@
     <form id="frutaCadastrarForm">
       <div class="modal-body">
    
-    
-    <div class="mb-3">
-        <label for="identificador" class="form-label">Identificador</label>
-        <input type="text" class="form-control" id="identificador" name="identificador" placeholder="ID">
-    </div>
     <div class="mb-3">
         <label for="nome" class="form-label">Nome da Espécie(popular)</label>
         <select class="form-control" id="nome" name="nome">
           <option value="Manga" data-img="assets/image/manga madurinha.avif">Manga</option>
           <option value="Acerola" data-img="assets/image/acerola madurinha.avif">Acerola</option>
           <option value="Abacate" data-img="assets/image/abacate madurinha.avif">Abacate</option>
-          <option value="Caju" data-img="assets/image/caju madurinho.jpg">Caju</option>
+          <option value="Banana" data-img="assets/image/banana madurinha.avif">Banana</option>
         </select>
     </div>
     <div class="mb-3">
@@ -108,39 +103,49 @@
 </main>
 <!-- Fim do Modal -->
   
-  <!-- Ínicio da Tabela --> 
-<div class="container">
-<table class="table table-hover table-success table-striped" id="frutasListaTable">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Imagem</th>
-      <th scope="col">Nome da Espécie(popular)</th>
-      <th scope="col">Nome Científico</th>
-      <th scope="col">Produção por Safra</th>
-      <th scope="col">Data do plantio</th>
-    </tr>
-  </thead>
-  <tbody id="frutaListaTBody">
-    
-  </tbody>
-</table>
+<div class="container mt-4">
+  <div class="mb-3 text-end">
+    <button id="btnTabela" class="btn btn-success btn-sm">Tabela</button>
+    <button id="btnCards" class="btn btn-success btn-sm">Cards</button>
+  </div>
+
+  <!-- Modo Tabela -->
+  <div id="viewTabela">
+    <table class="table table-hover table-success table-striped-columns">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Imagem</th>
+          <th scope="col">Nome da Espécie (popular)</th>
+          <th scope="col">Nome Científico</th>
+          <th scope="col">Produção por Safra</th>
+          <th scope="col">Data do Plantio</th>
+        </tr>
+      </thead>
+      <tbody id="frutaListaTBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Modo Cards -->
+  <div id="viewCards" class="row" style="display: none;">
+    <div id="frutasCardContainer" class="row"></div>
+  </div>
 </div>
   <!-- Ínicio do Footer -->
    <div class="wrapper">
-   <footer class="container-fluid text-white bg-dark fixed-bottom">
+   <footer class="container-fluid text-dark bg-success">
     <div class="row pt-5 pb-5">
         <section class="col-md-5">
-            <h5><img src="assets/image/Morango.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <h5><img src="assets/image/arvore.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
 
                 Pomar Digital
             </h5>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.html" class="nav-link">Home</a>
+                    <a class="nav-link text-dark" href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="lista.html" class="nav-link">Lista</a>
+                    <a class="nav-link text-dark" href="lista.html" class="nav-link">Lista</a>
                 </li>
                 
             </ul>
@@ -148,12 +153,12 @@
         <section class="col-md-5">
             <h5>Contato</h5>
             <ul>
-                <li><a class="nav-link text-white" href="tel:+5583111111111">Tel: (83) 9 9999-9999</a></li>
-                <li><a class="nav-link text-white" href=https://wa.me/5583999999999?text=Quero%20fazer%20um%20pedido! target="_blank">WhatsApp: (83) 9 9999-9999</a></li>
+                <li><a class="nav-link text-dark" href="tel:+5583111111111">Tel: (83) 9 9999-9999</a></li>
+                <li><a class="nav-link text-dark" href=https://wa.me/5583999999999?text=Quero%20fazer%20um%20pedido! target="_blank">WhatsApp: (83) 9 9999-9999</a></li>
             </ul>
         </section>
         <section>
-            <a class="nav-link text-white" href="#">Voltar ao topo!</a>
+            <a class="nav-link text-dark" href="#">Voltar ao topo!</a>
         </section>
     </div>
     </div>
