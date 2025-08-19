@@ -41,15 +41,14 @@
   <!-- Fim da Barra de navegação -->
   <!-- Ínicio do Label-->
 <main>
-    <div class="container d-flex justify-content-center align-items-center">
-<div class="form-floating mb-3 w-100">
-    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-    <label for="floatingInput">Buscar</label>
-    </div>
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#frutaModal">
+  <div class="container d-flex justify-content-center align-items-center">
+  <div class="form-floating mb-3 w-100">
+  </div>
+  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#frutaModal">
   +
-</button>
-    </div>
+  </button>
+  </div>
+
   
   
   <!-- Fim do Label -->
@@ -78,6 +77,10 @@
           <option value="Abacate" data-img="assets/image/abacate madurinha.avif">Abacate</option>
           <option value="Banana" data-img="assets/image/banana madurinha.avif">Banana</option>
         </select>
+    </div>
+    <div class="mb-3">
+        <label for="imagem" class="form-label">Imagem da fruta</label>
+        <input type="text" class="form-control" id="imagem" name="imagem" placeholder="URL da Imagem">
     </div>
     <div class="mb-3">
         <label for="cientifico" class="form-label">Nome Científico</label>
@@ -115,7 +118,6 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Imagem</th>
           <th scope="col">Nome da Espécie (popular)</th>
           <th scope="col">Nome Científico</th>
           <th scope="col">Produção por Safra</th>
@@ -126,7 +128,7 @@
     </table>
   </div>
 
-  <!-- Modo Cards -->
+  <!--Cards -->
   <div id="viewCards" class="row" style="display: none;">
     <div id="frutasCardContainer" class="row"></div>
   </div>

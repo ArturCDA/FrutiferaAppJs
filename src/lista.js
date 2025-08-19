@@ -4,7 +4,6 @@ const addFrutaTable = (fruta) => {
   let frutaTr = `
     <tr>
       <th scope="row">${fruta.identificador}</th>
-      <td><img src="${fruta.imagem}" width="50" height="50"></td>
       <td>${fruta.nome}</td>
       <td>${fruta.cientifico}</td>
       <td>${fruta.producao} Kg</td>
@@ -85,14 +84,6 @@ const handleSubmit = (event) => {
   // Fechar modal
   $('#frutaModal').modal('toggle');
 
-  // Exibir Toastify
-  Toastify({
-    text: 'Fruteira cadastrada com sucesso!',
-    duration: 3000,
-    gravity: "top", 
-    position: "center",
-    style: { background: "green" }
-  }).showToast();
 };
 
 // Eventos
