@@ -85,12 +85,20 @@ const handleSubmit = (event) => {
   $('#frutaModal').modal('toggle');
 
   Toastify({
-    text: 'Fruteira cadastrada com sucesso!',
-    duration: 3000,
-    gravity: "top",
-    position: "center",
-    style: { background: "green" }
-  }).showToast();
+        text: "Item cadastrado com sucesso!",
+        duration: 3000,
+        gravity: "top",
+        position: "left",
+        stopOnFocus: true,
+        offset: { x: 20, y: 70 },
+        style: {
+            background: "linear-gradient(to right, #25b620ff, #fdfaf7ff)",
+            padding: "10px 14px",
+            width: "auto",
+            maxWidth: "250px",
+            fontSize: "14px"
+        }
+    }).showToast();
 
 };
 
