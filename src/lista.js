@@ -26,7 +26,7 @@ const addFrutaCard = (fruta) => {
   let frutaCard = `
     <div class="col-md-4 mb-3">
       <div class="card shadow-sm h-100">
-        <img src="${fruta.imagem}" class="card-img-top" alt="${fruta.nome}" style="height: 200px; object-fit: cover;">
+        <img src="${fruta.imagem}" class="card-img-top cardImg" alt="${fruta.nome}" style="height: 200px; object-fit: cover;">
         <div class="card-body">
           <h5 class="card-title">${fruta.nome}</h5>
           <h6 class="card-subtitle mb-2 text-muted"><i>${fruta.cientifico}</i></h6>
@@ -83,6 +83,14 @@ const handleSubmit = (event) => {
 
   // Fechar modal
   $('#frutaModal').modal('toggle');
+
+  Toastify({
+    text: 'Fruteira cadastrada com sucesso!',
+    duration: 3000,
+    gravity: "top",
+    position: "center",
+    style: { background: "green" }
+  }).showToast();
 
 };
 
