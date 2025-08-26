@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pomar Digital</title>
     <!-- Bootstrap -->
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/lista.css">
-    <!-- Toastify -->
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <!-- Toastify css -->
     <link rel="stylesheet" type="text/css" href="./node_modules/toastify-js/src/toastify.css">    
-    <!-- Scripts -->
+    <!-- Css da lista e do footer-->
     <link href="./assets/css/lista.css" rel="stylesheet">
     <link href="./assets/css/footer.css" rel="stylesheet">
   </head>
@@ -18,18 +17,25 @@
     <header>
         <nav class="navbar navbar-success bg-success">
           <div class="container-fluid">
+          <!-- Logo e nome do site -->
             <a class="navbar-brand" href="#">
               <img src="assets/image/arvore.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
               Pomar Digital
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Botão para expandir o menu em telas pequenas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                    aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Menu de navegação -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Link da home -->
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
+                <!-- Link da lista -->
                 <li class="nav-item">
                   <a class="nav-link" href="lista.html">Lista</a>
                 </li>
@@ -39,76 +45,87 @@
         </nav>
     </header>
   <!-- Fim da Barra de navegação -->
+
   <!-- Ínicio do Label-->
 <main>
   <div class="container d-flex justify-content-center align-items-center">
-  <div class="form-floating mb-3 w-100">
-  </div>
-  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#frutaModal">
-  +
-  </button>
+    <div class="form-floating mb-3 w-100">
+    <!-- Espaço vazio -->
+    </div>
+    <!-- Botão que abre o modal para cadastrar uma fruta -->
+    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#frutaModal">
+      +
+    </button>
   </div>
 
-  
-  
   <!-- Fim do Label -->
-  
-  <!-- Ínicio do Modal-->
-   <!-- Button trigger modal -->
-
 
 <!-- Modal -->
 <div class="modal fade" id="frutaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <!-- Cabeçalho do modal -->
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar - Frutas</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Cadastrar - Frutas
+        </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    <!-- Ínicio do Formulario -->
+    <!-- Cadastro do Formulario -->
     <form id="frutaCadastrarForm">
-      <div class="modal-body">
-   
-    <div class="mb-3">
-        <label for="nome" class="form-label">Nome da Espécie(popular)</label>
-        <select class="form-control" id="nome" name="nome">
-          <option value="Manga" data-img="assets/image/manga madurinha.avif">Manga</option>
-          <option value="Acerola" data-img="assets/image/acerola madurinha.avif">Acerola</option>
-          <option value="Abacate" data-img="assets/image/abacate madurinha.avif">Abacate</option>
-          <option value="Banana" data-img="assets/image/banana madurinha.avif">Banana</option>
-        </select>
-    </div>
-    <div class="mb-3">
-        <label for="imagem" class="form-label">Imagem da fruta</label>
-        <input type="text" class="form-control" id="imagem" name="imagem" placeholder="URL da Imagem">
-    </div>
-    <div class="mb-3">
-        <label for="cientifico" class="form-label">Nome Científico</label>
-        <input type="text" class="form-control" id="cientifico" name="cientifico" placeholder="Nome Científico">
-    </div>
-    <div class="mb-3">
-        <label for="producao" class="form-label">Produção por Safra(kg)</label>
-        <input type="number" class="form-control" id="producao" name="producao" placeholder="Produção por Safra">
-    </div>
-    <div class="mb-3">
-        <label for="dataPlantio" class="form-label">Data do plantio</label>
-        <input type="date" class="form-control" id="dataPlantio" name="dataPlantio" placeholder="Data do plantio">
-    </div>
+    <div class="modal-body">
+      <!-- Selecionar o nome popular da fruta -->
+      <div class="mb-3">
+          <label for="nome" class="form-label">Nome da Espécie(popular)</label>
+          <select class="form-control" id="nome" name="nome">
+            <option value="Manga" data-img="assets/image/manga madurinha.avif">Manga</option>
+            <option value="Acerola" data-img="assets/image/acerola madurinha.avif">Acerola</option>
+            <option value="Abacate" data-img="assets/image/abacate madurinha.avif">Abacate</option>
+            <option value="Banana" data-img="assets/image/banana madurinha.avif">Banana</option>
+          </select>
       </div>
+      <!-- Url da imagem da fruta -->
+      <div class="mb-3">
+          <label for="imagem" class="form-label">Imagem da fruta</label>
+          <input type="text" class="form-control" id="imagem" name="imagem" placeholder="URL da Imagem">
+      </div>
+      <!-- Nome científico da fruta -->
+      <div class="mb-3">
+          <label for="cientifico" class="form-label">Nome Científico</label>
+          <input type="text" class="form-control" id="cientifico" name="cientifico" placeholder="Nome Científico">
+      </div>
+      <!-- Produção por safra em kg da fruta -->
+      <div class="mb-3">
+          <label for="producao" class="form-label">Produção por Safra(kg)</label>
+          <input type="number" class="form-control" id="producao" name="producao" placeholder="Produção por Safra">
+      </div>
+      <!-- Data do plantio -->
+      <div class="mb-3">
+          <label for="dataPlantio" class="form-label">Data do plantio</label>
+          <input type="date" class="form-control" id="dataPlantio" name="dataPlantio" placeholder="Data do plantio">
+      </div>
+    </div>
+    <!-- Rodapé do modal -->
       <div class="modal-footer">
+        <!-- Botão de Cancelar -->
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+        <!-- Botão de Salvar -->
         <button type="submit" class="btn btn-primary">Salvar</button>
       </div>
     </form>
     </div>
   </div>
 </div>
-</main>
+
 <!-- Fim do Modal -->
   
+<!-- Botões de visualização -->
 <div class="container mt-4">
   <div class="mb-3 text-end">
+    <!-- Alterna para tabela -->
     <button id="btnTabela" class="btn btn-success btn-sm">Tabela</button>
+    <!-- Alterna para cards -->
     <button id="btnCards" class="btn btn-success btn-sm">Cards</button>
   </div>
 
@@ -124,23 +141,28 @@
           <th scope="col">Data do Plantio</th>
         </tr>
       </thead>
+      <!-- Corpo da tabela preenchido via JavaScript -->
       <tbody id="frutaListaTBody"></tbody>
     </table>
   </div>
 
   <!--Cards -->
   <div id="viewCards" class="row" style="display: none;">
+    <!-- Container para os cards preenchidos via JavaScript -->
     <div id="frutasCardContainer" class="row"></div>
   </div>
 </div>
+  <!-- Fim dos cards -->
+</main>
   <!-- Ínicio do Footer -->
    <div class="wrapper">
    <footer class="container-fluid text-dark bg-success">
     <div class="row pt-5 pb-5">
+      <!-- Logo e Links -->
         <section class="col-md-5">
-            <h5><img src="assets/image/arvore.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-
-                Pomar Digital
+            <h5>
+              <img src="assets/image/arvore.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> 
+              Pomar Digital
             </h5>
             <ul class="nav">
                 <li class="nav-item">
@@ -152,28 +174,41 @@
                 
             </ul>
         </section>
+        <!-- Contatos -->
         <section class="col-md-5">
             <h5>Contato</h5>
             <ul>
-                <li><a class="nav-link text-dark" href="tel:+5583111111111">Tel: (83) 9 9999-9999</a></li>
-                <li><a class="nav-link text-dark" href=https://wa.me/5583999999999?text=Quero%20fazer%20um%20pedido! target="_blank">WhatsApp: (83) 9 9999-9999</a></li>
+                <li>
+                  <!-- Link para ligação direta -->
+                  <a class="nav-link text-dark" href="tel:+5583111111111">Tel: (83) 9 9999-9999</a>
+                </li>
+
+                <li>
+                  <!-- Link para Whatsapp -->
+                  <a class="nav-link text-dark" href=https://wa.me/5583999999999?text=Quero%20fazer%20um%20pedido! target="_blank">
+                    WhatsApp: (83) 9 9999-9999
+                  </a>
+                </li>
             </ul>
         </section>
+        <!-- Link para voltar ao topo da página -->
         <section>
             <a class="nav-link text-dark" href="#">Voltar ao topo!</a>
         </section>
     </div>
-    </div>
-   </footer>
-   <!-- Bootstrap  -->
+    </footer>
+  </div>
+   <!-- Fim do footer -->
 
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./node_modules/toastify-js/src/toastify.js"></script>
-    
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="./src/lista.js" type="module"></script>
+   <!-- ======================== SCRIPTS ======================== -->
+  <!-- jQuery: manipulação de DOM -->
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- Toastify: exibir notificações -->
+  <script src="./node_modules/toastify-js/src/toastify.js"></script>
+  <!-- Bootstrap JS: funcionalidade de modal, navbar, etc. -->
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script principal da página -->
+  <script src="./src/lista.js" type="module"></script>
+  
   </body>
-
-
 </html>

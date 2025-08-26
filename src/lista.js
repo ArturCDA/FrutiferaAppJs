@@ -1,28 +1,36 @@
+// ======================== ADICIONA UMA FRUTA NA TABELA ========================
 const addFrutaTable = (fruta) => {
-  let frutasTBody = document.getElementById('frutaListaTBody');
+  // Seleciona o corpo da tabela onde as frutas serão inseridas
+  let frutasTBody = document.getElementById('frutaListaTBody');// seleciona tbody
 
+  // Cria a linha da tabela com os dados da fruta
   let frutaTr = `
     <tr>
-      <th scope="row">${fruta.identificador}</th>
-      <td>${fruta.nome}</td>
-      <td>${fruta.cientifico}</td>
-      <td>${fruta.producao} Kg</td>
-      <td>${fruta.dataPlantio}</td>
+      <th scope="row">${fruta.identificador}</th>  <!-- Mostra o Id --> 
+      <td>${fruta.nome}</td>                       <!-- Mostra o nome popular -->
+      <td>${fruta.cientifico}</td>                 <!-- Mostra o nome científico -->
+      <td>${fruta.producao} Kg</td>                <!-- Mostra a produção por safra em kg-->
+      <td>${fruta.dataPlantio}</td>                <!-- Mostra a data de plantio -->
     </tr>
   `;
 
+  // Insere a linha no final da tabela
   frutasTBody.insertAdjacentHTML('beforeend', frutaTr);
 };
 
+// ======================== ADICIONA UMA FRUTA EM FORMATO CARD ========================
 const addFrutaCard = (fruta) => {
+  // Seleciona o container de cards
   let frutasContainer = document.getElementById('frutasCardContainer');
 
-  let plantio = new Date(fruta.dataPlantio);
-  let hoje = new Date();
+  // Calcula a idade da fruta em meses
+  let plantio = new Date(fruta.dataPlantio);// data plantio
+  let hoje = new Date();// data atual
+  //Calcula a diferença em anos * 12 + diferença de meses
   let idadeMeses = (hoje.getFullYear() - plantio.getFullYear()) * 12 
                  + (hoje.getMonth() - plantio.getMonth());
 
-
+  // Cria o card da fruta com imagem, nome, científico, produção, data e idade
   let frutaCard = `
     <div class="col-md-4 mb-3">
       <div class="card shadow-sm h-100">
@@ -41,29 +49,36 @@ const addFrutaCard = (fruta) => {
     </div>
   `;
 
+  // Insere o card no final do container
   frutasContainer.insertAdjacentHTML('beforeend', frutaCard);
 };
 
-// Carregar fruteiras do localStorage ao abrir a página
+// ======================== CARREGA FRUTAS DO LOCALSTORAGE ========================
 const carregarFrutas = () => {
+  // Recupera o array de frutas armazenado no localStorage (ou cria array vazio se não existir)
   let frutas = JSON.parse(localStorage.getItem('frutas')) ?? [];
-  for (let fruta of frutas) {
-    addFrutaTable(fruta);
-    addFrutaCard(fruta);
+  // Para cada fruta, adiciona na tabela e nos cards
+  for (let fruta of frutas) { // percorre todas
+    addFrutaTable(fruta); // insere na tabela
+    addFrutaCard(fruta); // insere no card
   }
 };
 
 // Lidar com o envio do formulário
 const handleSubmit = (event) => {
+  // Evita que a página recarregue ao enviar o formulário
   event.preventDefault();
 
-  let frutaForm = document.getElementById('frutaCadastrarForm');
-  let frutaFormData = new FormData(frutaForm);
-  let fruta = Object.fromEntries(frutaFormData);
+  // Captura os dados do formulário
+  let frutaForm = document.getElementById('frutaCadastrarForm'); // form
+  let frutaFormData = new FormData(frutaForm); // dados form
+  let fruta = Object.fromEntries(frutaFormData); // Transforma em objeto
 
+  // Gera um ID único
   fruta.identificador = Date.now();
 
-  let select = document.querySelector('#nome');
+  // Pega a imagem correspondente ao nome da fruta selecionado
+  let select = document.querySelector('#nome'); // seleciona frutas
   let imgSrc = select.options[select.selectedIndex].getAttribute('data-img');
   fruta.imagem = imgSrc;
 
@@ -73,19 +88,22 @@ const handleSubmit = (event) => {
 
   // Adicionar nova fruta
   frutas.push(fruta);
-  localStorage.setItem('frutas', JSON.stringify(frutas));
+  localStorage.setItem('frutas', JSON.stringify(frutas)); // salva
 
-  // Adicionar na tabela
+  // Adicionar fruta na tabela
   addFrutaTable(fruta);
+  // Adicionar fruta no card
   addFrutaCard(fruta);
-  // Resetar formulário
+
+  // Resetar formulário para novo cadastro
   frutaForm.reset();
 
-  // Fechar modal
+  // Fechar modal (usa Jquery)
   $('#frutaModal').modal('toggle');
 
+  // Exibe notificação de sucesso usando Toastify
   Toastify({
-        text: "Item cadastrado com sucesso!",
+        text: "Fruta cadastrada com sucesso!",
         duration: 3000,
         gravity: "top",
         position: "left",
@@ -102,17 +120,22 @@ const handleSubmit = (event) => {
 
 };
 
-// Eventos
-let frutaCadastrarForm = document.getElementById('frutaCadastrarForm');
-frutaCadastrarForm.onsubmit = handleSubmit;
+// ======================== EVENTOS ========================
 
+// Captura evento de envio do formulário
+let frutaCadastrarForm = document.getElementById('frutaCadastrarForm');
+frutaCadastrarForm.onsubmit = handleSubmit; // envia form
+
+// Carrega frutas automaticamente ao abrir a página
 document.body.onload = carregarFrutas;
 
+// Alterna para TABELA
 document.getElementById('btnTabela').addEventListener('click', () => {
   document.getElementById('viewTabela').style.display = 'block';
   document.getElementById('viewCards').style.display = 'none';
 });
 
+// Alterna para CARDS
 document.getElementById('btnCards').addEventListener('click', () => {
   document.getElementById('viewTabela').style.display = 'none';
   document.getElementById('viewCards').style.display = 'block';
